@@ -30,7 +30,7 @@ For this week's task, I have trained and compared the performance of different m
     - Hidden Layers: Varying sizes (16, 32, 64, 128, 256 neurons)
     - Output Layer: Number of neurons equal to the number of classes with softmax activation
   - **Training Parameters:**
-    - `epochs=50`
+    - `epochs=500`
     - `batch_size=32`
     - Optimizer: Adam
     - Loss Function: Categorical Crossentropy
