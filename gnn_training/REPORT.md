@@ -31,7 +31,31 @@ The noode features are the atom attributes, and the edge features are the bond a
 
 The primary goal of the code is to develop and train a GNN to predict a specific molecular property from the QM9 dataset. Specifically, the code focuses on predicting the **HOMO-LUMO energy gap**.
 
-## Results
+# Methodology
+
+### Model Architecture
+1. **NNConv Layers**: 
+   - Two NNConv layers are used, each employing a MLP to transform edge features into messages.
+   - The first NNConv layer maps the initial node features to a hidden dimension.
+   - The second NNConv layer operates on this hidden representation and outputs another embedding for each node.
+   - Both layers use mean aggregation to gather messages from neighboring nodes.
+
+2. **MLPs for Edge Transformations**:  
+   - Each NNConv layer is coupled with an MLP that takes edge features as input and outputs weight matrices for the message passing.
+
+3. **Batch Normalization and Dropout**:  
+   - **BatchNorm1d** layers are applied after each NNConv to normalize the hidden representations, helping stabilize training.
+   - A **Dropout** layer with a probability of 0.2 is included after each convolution block to reduce overfitting.
+
+4. **Pooling and Final MLP**:  
+   - A **global_mean_pool** operation aggregates all node embeddings into a single graph-level vector.
+   - A final MLP with one hidden layer is then applied to produce the prediction.
+---
+
+**Loss Function**:  
+   - **Mean Squared Error (MSE)** is used as the primary loss function during training
+
+# Results
 
 ## Best Validation Performance
 - **Best Validation MSE**: 0.1277 (achieved at epoch 30).
