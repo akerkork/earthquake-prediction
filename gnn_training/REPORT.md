@@ -1,5 +1,4 @@
-# GNN for Molecular Property Prediction using the QM9 Dataset
-
+# GNN for Molecular Property Prediction
 ## Dataset
 
 The **QM9 dataset** is a collection of quantum chemical calculations of small organic molecules. It contains approximately 130,000 molecules made up of hydrogen (H), carbon (C), nitrogen (N), oxygen (O), and fluorine (F) atoms. For each molecule, the dataset provides:
